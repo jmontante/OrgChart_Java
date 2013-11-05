@@ -1,10 +1,15 @@
 $(document).ready(function() {
-	$('#addBtn-container').css('width', $('#t1').width());
-
-	$('#addBtn').click(function() {
-		$('#addBtn-container').fadeToggle("fast", "linear", function() {
-			$('#addEntity').fadeToggle("fast", "linear");
-		});
-	});
+	//$('#Btn-container').css('width', $('#t1').width());
 	
+	$('#addDeptBtn').button().click(function() {
+		$('#addEntity').fadeToggle("fast", "linear").dialog({ minWidth : 400});
+	});
+		
+	$('.editDeptBtn').button().click(function() {
+		$('#editEntity').fadeToggle("fast", "linear").dialog({ minWidth : 400});
+	});
+		
+	$('.removeDeptBtn').button().click(function() {
+		$('#removeEntity').fadeToggle("fast", "linear");
+	});	
 });

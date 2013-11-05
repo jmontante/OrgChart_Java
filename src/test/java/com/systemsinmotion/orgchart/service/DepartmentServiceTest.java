@@ -11,15 +11,17 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.systemsinmotion.orgchart.Entities;
-import com.systemsinmotion.orgchart.dao.IDepartmentDao;
+import com.systemsinmotion.orgchart.dao.DepartmentDao;
+//import com.systemsinmotion.orgchart.dao.IDepartmentDao;
 import com.systemsinmotion.orgchart.entity.Department;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/test-context.xml")
@@ -27,10 +29,9 @@ import com.systemsinmotion.orgchart.entity.Department;
 @Transactional
 public class DepartmentServiceTest {
 
-	@Autowired
 	DepartmentService departmentService;
 
-	IDepartmentDao mockDepartmentDAO = mock(IDepartmentDao.class);
+	DepartmentDao mockDepartmentDao = mock(DepartmentDao.class);
 	Department mockDepartment = mock(Department.class);
 
 	private ArrayList<Department> listOfFoundDepts = new ArrayList<Department>();
@@ -39,10 +40,10 @@ public class DepartmentServiceTest {
 	public void before() throws Exception {
 		when(this.mockDepartment.getId()).thenReturn(Entities.DEPT_ID);
 		this.listOfFoundDepts.add(this.mockDepartment);
-		when(this.mockDepartmentDAO.findAll()).thenReturn(this.listOfFoundDepts);
-		when(this.mockDepartmentDAO.findById(Entities.DEPT_ID)).thenReturn(this.mockDepartment);
-		when(this.mockDepartmentDAO.save(this.mockDepartment)).thenReturn(Entities.DEPT_ID);
-		this.departmentService.setDepartmentDAO(this.mockDepartmentDAO);
+		when(this.mockDepartmentDao.findAll()).thenReturn(this.listOfFoundDepts);
+		when(this.mockDepartmentDao.findById(Entities.DEPT_ID)).thenReturn(this.mockDepartment);
+		when(this.mockDepartmentDao.save(this.mockDepartment)).thenReturn(Entities.DEPT_ID);
+		this.departmentService.setDepartmentDao(this.mockDepartmentDao);
 	}
 
 	@Test
@@ -54,7 +55,7 @@ public class DepartmentServiceTest {
 
 	@Test
 	public void findDepartmentByID() {
-		Department dept = this.departmentService.findDepartmentByID(Entities.DEPT_ID);
+		Department dept = this.departmentService.findDepartmentById(Entities.DEPT_ID);
 		assertNotNull(dept);
 		assertEquals(Entities.DEPT_ID, dept.getId());
 	}

@@ -4,11 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-
 import java.util.List;
-
 import org.junit.After;
 import org.junit.Before;
+//import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.systemsinmotion.orgchart.Entities;
 import com.systemsinmotion.orgchart.entity.JobTitle;
 
@@ -26,11 +24,8 @@ import com.systemsinmotion.orgchart.entity.JobTitle;
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 @Transactional
 public class JobTitleDaoTest {
-
 	private static final String SOME_NEW_NAME = "Some New Name";
-
 	private static final String NOT_PRESENT_VALUE = "XXX";
-
 	private static final Integer NOT_PRESENT_ID = -666;
 
 	private JobTitle jobTitle;
@@ -101,7 +96,6 @@ public class JobTitleDaoTest {
 		JobTitle dept = this.jobTitleDao.findByName(this.jobTitle.getName());
 		dept.setName(SOME_NEW_NAME);
 		this.jobTitleDao.update(dept);
-
 		dept = null;
 		dept = this.jobTitleDao.findByName(SOME_NEW_NAME);
 		assertNotNull(dept);

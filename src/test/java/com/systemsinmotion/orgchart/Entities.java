@@ -65,5 +65,4 @@ public class Entities {
 		mgr.setIsManager(true);
 		return mgr;
 	}
-
 }

@@ -1,8 +1,8 @@
 package com.systemsinmotion.orgchart.dao;
 
+//import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
@@ -12,11 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
-
 import com.systemsinmotion.orgchart.entity.Department;
 
 /**
- * A data access object (DAO) providing persistence and search support for Employee entities. Transaction control of the
+ * A data access object (DAO) providing persistence and search support for Department entities. Transaction control of the
  * save(), update() and delete() operations must be handled externally by senders of these methods or must be manually
  * added to each of these methods for data to be persisted to the JPA datastore.
  * 

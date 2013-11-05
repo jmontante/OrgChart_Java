@@ -33,6 +33,7 @@ public class Department implements java.io.Serializable {
 	@NotEmpty
 	@Size(min = 1, max = 45)
 	private String name;
+	
 	private Set<Department> departments = new HashSet<Department>(0);
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "parentDepartment")
@@ -42,11 +43,11 @@ public class Department implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID", unique = true, nullable = false)
+	@Column(name = "ID", unique = true, nullable = false) 
 	public Integer getId() {
 		return this.id;
 	}
-
+	
 	@Column(name = "NAME", nullable = false, length = 50)
 	public String getName() {
 		return this.name;
