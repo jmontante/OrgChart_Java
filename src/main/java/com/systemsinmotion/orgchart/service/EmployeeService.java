@@ -26,7 +26,7 @@ public class EmployeeService {
 		return this.employeeDao.findAll();
 	}
 
-	public Integer storeEmployee(Employee employee) {
+	public Integer storeEmployee(Employee employee) {		
 		return this.employeeDao.save(employee);
 	}
 

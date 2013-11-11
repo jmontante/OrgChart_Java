@@ -12,16 +12,9 @@ $(document).ready(function() {
 	});
 	
 	
-	$('.removeEmpBtn').button();
-//	$('#removeEmpBtn').button().click(function() {
-//		$('#removeBtn-container').fadeToggle("fast", "linear", function() {
-//			$('#removeEntity').fadeToggle("fast", "linear");
-//		});
-//	});		
+	$('.removeEmpBtn').button();	
 	
-	$('#saveEmpBtn').button().click(function(){
-		
-	});
+	$('#saveEmpBtn').button();
 	
 	//Cancel button on the form clears out all the fields and closes the form
 	$('#cancelEmpBtn').button().click(function() {

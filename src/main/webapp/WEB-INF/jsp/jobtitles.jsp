@@ -21,7 +21,13 @@
 			<tr> 
 				<td>${job.name}</td> 
 				<td><div><button type="button" class="editJobBtn" value="${job.id}">Edit</button></div></td>
-<%-- 				<td><div><button type="button" class="removeJobBtn" value="${job.id}">Delete</button></div></td> --%>
+
+				<td>
+					<form:form name="removeJob" action="jobs" method="delete">
+						<input type="hidden" name="id" value="${job.id}">
+						<button type="submit" class="removeJobBtn">Delete</button>				
+					</form:form>
+				</td>
 			</tr>
 		</c:forEach> 
 	</table>
@@ -31,13 +37,17 @@
 		<legend>Add Job Title</legend>
 		<form name="newJob" action="jobs" method="post">
 			<div><labeL>Job Name:</labeL>
-				 <input type="text" name="name"/>
+				 <input type="text" name="name" required/> *
 				 <button type="submit">Save</button>
 			</div>
+			<br><br><footer>Required Fields indicated with a *</footer>
 		</form>
 	</fieldset>
 	</div>	
-	
+	<script>
+	$("#addEntity").validate();
+	</script>
+
 <!-- 	<div id="editEntity" style="display:none"> -->
 <!-- 		<fieldset> -->
 <!-- 			<legend>Edit Job Title</legend> -->
@@ -45,15 +55,7 @@
 <!-- 				<div><button type="submit">Save</button></div> -->
 <%-- 			</form> --%>
 <!-- 		</fieldset> -->
-<!-- 	</div> -->
-	
-<!-- 	<div id="removeEntity" style="display:none"> -->
-<!-- 		<fieldset> -->
-<!-- 			<legend>Remove Job Title</legend> -->
-<%-- 			<form name="removeJob" action="jobs" method="delete"> --%>
-<!-- 				<div><button type="submit">Save</button></div>				 -->
-<%-- 			</form> --%>
-<!-- 		</fieldset> -->
-<!-- 	</div> -->
+<!-- 	</div> -->	
+
 </body>
 </html>

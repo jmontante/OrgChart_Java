@@ -9,7 +9,6 @@ $(document).ready(function() {
 		$('#editEntity').fadeToggle("fast", "linear").dialog({ minWidth : 400});
 	});
 		
-	$('.removeDeptBtn').button().click(function() {
-		$('#removeEntity').fadeToggle("fast", "linear");
-	});	
+	$('.removeDeptBtn').button();
+	
 });

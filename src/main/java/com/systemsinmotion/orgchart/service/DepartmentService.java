@@ -31,7 +31,7 @@ public class DepartmentService {
 		if(department.getParentDepartment() != null && department.getParentDepartment().getId() == null) {
 			department.setParentDepartment(null);
 		}
-		
+
 		return this.departmentDao.save(department);
 	}
 

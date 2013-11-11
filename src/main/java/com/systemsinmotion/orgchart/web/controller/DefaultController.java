@@ -128,8 +128,12 @@ public class DefaultController {
 	
 	@RequestMapping(value = "jobs", method = RequestMethod.DELETE)
 	public String doJobTitles_DELETE(@RequestParam Integer id, Model model) {
+		
+		//remove the jobtitle
 		this.jobTitleService.removeJobTitle(this.jobTitleService.findJobTitleById(id));
-		return View.JOB_TITLES;
+		
+		//redirect to jobtitles page to reload appropriate form data
+		return "redirect:" + View.JOB_TITLES;
 	}
 	
 	public void setJobTitleService(JobTitleService jobTitleService) {

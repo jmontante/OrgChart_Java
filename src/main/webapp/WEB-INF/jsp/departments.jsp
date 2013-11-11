@@ -16,10 +16,10 @@
 			<legend>Add Department</legend>
 			<form name="newDept" action="depts" method="post">
 			<div><br>
-				<labeL>Dept Name:</labeL><input type="text" name="name"/><br>
+				<labeL>Dept Name:</labeL><input type="text" name="name" required/> *<br>
 				<labeL>Parent Dept:</label>
 				<select name="parentDepartment.id">
-					<option>- Select Department -</option>
+					<option value="">- Select Department -</option>
 					<c:forEach items="${depts}" var="dept">
 						<option value="${dept.id}">${dept.name}</option>
 					</c:forEach>
@@ -28,8 +28,14 @@
 			</div>
 			<div></div>
 			</form>
+			<br><br><footer>Required Fields indicated with a *</footer>
 		</fieldset>
+
 	</div><br><br>
+	<script>
+	$("#addEntity").validate();
+	</script>
+	
 	<table id="t1"> 
 		<tr>
 			<th>Dept Name</th> <th>Parent Dept</th>
@@ -60,15 +66,5 @@
 		</fieldset>
 	</div>
 
-	<div id="removeEntity" style="display:none">
-		<fieldset>
-			<legend>Remove Department</legend>
-			<form name="removeDept" action="depts" method="post">
-				<div>
-					<button type="submit">Save</button>
-				</div>
-			</form>
-		</fieldset>
-	</div>
 </body>
 </html>
