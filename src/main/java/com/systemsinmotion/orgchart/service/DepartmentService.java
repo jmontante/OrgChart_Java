@@ -38,4 +38,9 @@ public class DepartmentService {
 	public void removeDepartment(Department department) {
 		this.departmentDao.delete(department);
 	}
+	
+	public void updatedepartment(Department department)
+	{
+		this.departmentDao.update(department);
+	}
 }

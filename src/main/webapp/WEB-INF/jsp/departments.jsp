@@ -11,32 +11,8 @@
 <body>
 	<h3>Systems In Motion: Departments</h3>
 	<button type="button" id="addDeptBtn" style="width: 45px;">Add</button>
-	<div id="addEntity" style="display:none">
-		<fieldset>
-			<legend>Add Department</legend>
-			<form name="newDept" action="depts" method="post">
-			<div><br>
-				<labeL>Dept Name:</labeL><input type="text" name="name" required/> *<br>
-				<labeL>Parent Dept:</label>
-				<select name="parentDepartment.id">
-					<option value="">- Select Department -</option>
-					<c:forEach items="${depts}" var="dept">
-						<option value="${dept.id}">${dept.name}</option>
-					</c:forEach>
-				</select><br><br>
-				<button type="submit">Save</button>
-			</div>
-			<div></div>
-			</form>
-			<br><br><footer>Required Fields indicated with a *</footer>
-		</fieldset>
-
-	</div><br><br>
-	<script>
-	$("#addEntity").validate();
-	</script>
-	
-	<table id="t1"> 
+	<br><br>
+	<table id="t1" border="1"> 
 		<tr>
 			<th>Dept Name</th> <th>Parent Dept</th>
 		</tr> 
@@ -45,8 +21,6 @@
 				<td>${dept.name}</td> 
 				<td>${dept.parentDepartment.name}</td>			
 					<td><div><button type="button" class="editDeptBtn" value="${dept.id}">Edit</button></div></td>
-
-<%-- 					<td><div><button type="button" class="removeDeptBtn" value="${dept.id}">Delete</button></div></td> --%>
 					<td>
 						<form:form name="removeDeptBtn" action="depts" method="delete">
 							<input type="hidden" name="id" value="${dept.id}">
@@ -57,12 +31,25 @@
 		</c:forEach>
 	</table>
 
-	<div id="editEntity" style="display:none">
+	<div id="addEntity" style="display:none">
 		<fieldset>
-			<legend>Edit Department</legend>
-			<form name="editDept" action="depts" method="post">
-				<div><button type="submit">Save</button></div>
-			</form>
+			<legend id="newDeptFormLegend">Add Department</legend>
+			<form:form id="newDeptForm" class="addDept" name="newDept" action="depts" method="post">
+				<br><br>
+				<div id="newDeptFormInputs">
+					<labeL>Dept Name:</labeL><input type="text" id="name" name="name" required/> *<br>
+					<labeL>Parent Dept:</label>
+					<select id="parentDepartment.id" name="parentDepartment.id">
+						<option value="">- Select Department -</option>
+						<c:forEach items="${depts}" var="dept">
+							<option value="${dept.id}">${dept.name}</option>
+						</c:forEach>
+					</select> *<br><br>
+					<button type="submit" id="saveDeptBtn">Save</button>
+					<button type="button" id="cancelDeptBtn">Cancel</button>
+				</div>		
+			</form:form>
+			<br><br><footer>Required Fields indicated with a *</footer>
 		</fieldset>
 	</div>
 

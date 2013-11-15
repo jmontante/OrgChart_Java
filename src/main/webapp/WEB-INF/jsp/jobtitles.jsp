@@ -13,7 +13,7 @@
 
 		<button type="button" id="addJobBtn" style="width: 45px;">Add</button><br><br>
 
-	<table id="jobsTable"> 
+	<table id="jobsTable" border="1"> 
 		<tr>
 			<th>Name</th>
 		</tr> 
@@ -21,7 +21,6 @@
 			<tr> 
 				<td>${job.name}</td> 
 				<td><div><button type="button" class="editJobBtn" value="${job.id}">Edit</button></div></td>
-
 				<td>
 					<form:form name="removeJob" action="jobs" method="delete">
 						<input type="hidden" name="id" value="${job.id}">
@@ -34,28 +33,22 @@
 		
 	<div id="addEntity" style="display:none">
 	<fieldset>
-		<legend>Add Job Title</legend>
-		<form name="newJob" action="jobs" method="post">
-			<div><labeL>Job Name:</labeL>
-				 <input type="text" name="name" required/> *
-				 <button type="submit">Save</button>
+		<legend id="newJobFormLegend">Add Job Title</legend>
+		<form:form id="newJobForm" class="addJob" name="newJob" action="jobs" method="post">
+			<div id="newJobFormInputs">
+				<br><br><labeL>Job Name:</labeL>
+				<input type="text" id="name" name="name" required> *
+				<br><br>
+				<button type="submit" id="saveJobBtn">Save</button>
+				<button type="button" id="cancelJobBtn">Cancel</button>
 			</div>
-			<br><br><footer>Required Fields indicated with a *</footer>
-		</form>
+			<br><footer>Required Fields indicated with a *</footer>
+		</form:form>
 	</fieldset>
 	</div>	
-	<script>
-	$("#addEntity").validate();
-	</script>
-
-<!-- 	<div id="editEntity" style="display:none"> -->
-<!-- 		<fieldset> -->
-<!-- 			<legend>Edit Job Title</legend> -->
-<%-- 			<form name="editJob" action="jobs" method="put"> --%>
-<!-- 				<div><button type="submit">Save</button></div> -->
-<%-- 			</form> --%>
-<!-- 		</fieldset> -->
-<!-- 	</div> -->	
+<!-- 	<script> -->
+<!-- 	$("#addEntity").validate(); -->
+<!-- 	</script> -->
 
 </body>
 </html>

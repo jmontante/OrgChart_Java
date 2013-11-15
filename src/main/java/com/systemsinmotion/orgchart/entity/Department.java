@@ -34,12 +34,12 @@ public class Department implements java.io.Serializable {
 	@Size(min = 1, max = 45)
 	private String name;
 	
-	private Set<Department> departments = new HashSet<Department>(0);
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "parentDepartment")
-	public Set<Department> getDepartments() {
-		return this.departments;
-	}
+//	private Set<Department> departments = new HashSet<Department>(0);
+//
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "parentDepartment")
+//	public Set<Department> getDepartments() {
+//		return this.departments;
+//	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -59,9 +59,9 @@ public class Department implements java.io.Serializable {
 		return this.parentDepartment;
 	}
 
-	public void setDepartments(Set<Department> departments) {
-		this.departments = departments;
-	}
+//	public void setDepartments(Set<Department> departments) {
+//		this.departments = departments;
+//	}
 
 	public void setId(Integer departmentId) {
 		this.id = departmentId;
